@@ -1,12 +1,19 @@
-import React from 'react'
-import Saludo from '../components/Saludo'
+import { useTextos } from "./hooks/useTextos.js";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import { useState } from "react";
 
-const App = () => {
+function App() {
+  // Idiom por defecto español
+  const [idioma, setIdioma] = useState("es");
+  const datos = useTextos(idioma);
+  console.log(datos);
+
   return (
-    <div>
-      <Saludo/>
+    <div className="sitio">
+      <Navbar />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
